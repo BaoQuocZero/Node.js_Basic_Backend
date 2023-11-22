@@ -1,6 +1,16 @@
 const connection = require('../config/database');
 const getAllUsers = async () => {
-    let [results, fields] = await connection.query('SELECT * FROM Users')
+    let [results, fields] = await connection.query('SELECT * FROM KhachHang')
+    return results;
+}
+
+const getAllNV = async () => {
+    let [results, fields] = await connection.query('SELECT * FROM NhanVien')
+    return results;
+}
+
+const getAllSP = async () => {
+    let [results, fields] = await connection.query('SELECT * FROM SanPham')
     return results;
 }
 
@@ -25,5 +35,5 @@ const deleteUserById = async (id) => {
 }
 
 module.exports = {
-    getAllUsers, getUserById, updateUserById, deleteUserById
+    getAllUsers, getUserById, updateUserById, deleteUserById, getAllNV, getAllSP
 }

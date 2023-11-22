@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+</head>
+
+<style>
+    .table-container {
+        padding: 15px 20px;
+    }
+
+    .title {
+        font-size: 25px;
+        font-weight: 600;
+        padding-bottom: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #ccc;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/khachhang">Khách hàng</a>
+        <a class="active" href="/nv">Nhân viên</a>
+        <a href="/sanpham">Sản phẩm</a>
+    </div>
+
+    <div class="table-container">
+        <!-- <%= JSON.stringify(listNhanVien) %> -->
+        <div class="title">List User</div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Họ</th>
+                <th>Tên</th>
+                <th>Địa chỉ</th>
+                <th>Thành Phố</th>
+                <th>Quốc Gia</th>
+                <th>Sđt</th>
+                <th>Ảnh</th>
+                <th>Hành động</th>
+            </tr>
+            <% listNhanVien.forEach(function(user, index) { %>
+                <tr>
+                    <td>
+                        <%= user.MaNV %>
+                    </td>
+                    <td>
+                        <%= user.HoLotNV %>
+                    </td>
+                    <td>
+                        <%= user.TenNV %>
+                    </td>
+                    <td>
+                        <%= user.DiaChiNV %>
+                    </td>
+                    <td>
+                        <%= user.ThanhPhoNV %>
+                    </td>
+                    <td>
+                        <%= user.QuocGiaNV %>
+                    </td>
+                    <td>
+                        <%= user.SdtNV %>
+                    </td>
+                    <td>
+                        <a href="/update/<%= user.id %>">Edit</a>
+                        <form action="/delete-user/<%= user.id %>" method="POST"><button>Delete</button></form>
+                    </td>
+                </tr>
+                <% }); %>
+        </table>
+    </div>
+</body>
+
+</html>

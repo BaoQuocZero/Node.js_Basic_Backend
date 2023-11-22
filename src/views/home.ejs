@@ -38,42 +38,12 @@
 <body>
     <div class="topnav">
         <a class="active" href="/">Home</a>
-        <a href="/create">Create User</a>
+        <a href="/khachhang">Khách hàng</a>
+        <a href="/nv">Nhân viên</a>
+        <a href="/sanpham">Sản phẩm</a>
     </div>
 
-    <div class="table-container">
-        <!-- <%= JSON.stringify(listUsers) %> -->
-        <div class="title">List User</div>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Name</th>
-                <th>City</th>
-                <th>Action</th>
-            </tr>
-            <% listUsers.forEach(function(user, index) { %>
-                <tr>
-                    <td>
-                        <%= user.id %>
-                    </td>
-                    <td>
-                        <%= user.email %>
-                    </td>
-                    <td>
-                        <%= user.name %>
-                    </td>
-                    <td>
-                        <%= user.city %>
-                    </td>
-                    <td>
-                        <a href="/update/<%= user.id %>">Edit</a>
-                        <form action="/delete-user/<%= user.id %>" method="POST"><button>Delete</button></form>
-                    </td>
-                </tr>
-                <% }); %>
-        </table>
-    </div>
+
 </body>
 
 </html>
